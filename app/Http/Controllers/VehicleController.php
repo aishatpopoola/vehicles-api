@@ -38,4 +38,24 @@ class VehicleController extends Controller
             201
         );
     }
+    
+    public function getVehicles($vehicle_id = null)
+    {
+        if ($vehicle_id) {
+            $vehicle = Vehicle::where('vehicle_id', $vehicle_id)->first();
+            if (!$vehicle) {
+                return response(['error' => 'Not found'], 404);
+            }
+            return response(
+                [ 'vehicle' => $vehicle ],
+                200
+            );
+        } else {
+            $vehicles = Vehicle::get();
+            return response(
+                [ 'Vehicles' => $Vehicles ],
+                200
+            );
+        }
+    }
 }
