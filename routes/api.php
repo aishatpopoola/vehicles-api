@@ -10,5 +10,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get("/get-vehicles/{vehicle_id?}", [VehicleController::class, 'getVehicles'])->name('vehicles.get');
 Route::post("/add-vehicle", [VehicleController::class, 'createVehicle'])->name('vehicles.add');
-Route::post("/update-vehicle", [VehicleController::class, 'updateVehicle'])->name('vehicles.update');
-Route::post("/delete-vehicle", [VehicleController::class, 'deleteVehicle'])->name('vehicles.delete');
+Route::patch("/update-vehicle", [VehicleController::class, 'updateVehicle'])->name('vehicles.update');
+Route::delete("/delete-vehicle", [VehicleController::class, 'deleteVehicle'])->name('vehicles.delete');
