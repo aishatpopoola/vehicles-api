@@ -38,7 +38,7 @@ class VehicleController extends Controller
             201
         );
     }
-    
+
     public function getVehicles($vehicle_id = null)
     {
         if ($vehicle_id) {
@@ -57,5 +57,42 @@ class VehicleController extends Controller
                 200
             );
         }
+    }
+
+    public function updateVehicle(Request $request)
+    {
+        $this->validateRequest($request);
+        $vehicle = Vehicle::where('vehicle_id', '=', $request->vehicle_id)->first();
+        if (!$vehicle) {
+            return response(['error' => 'Not found'], 404);
+        }
+        $vehicle->maker = $request->maker;
+        $vehicle->model = $request->model;
+        $vehicle->year = $request->year;
+        $vehicle->license_plate = $request->license_plate;
+        $vehicle->save();
+        return response(
+            [
+                'message' => "Vehicle updated",
+                'vehicle' => $vehicle,
+            ],
+            200
+        );
+    }
+
+    public function deleteBook($vehicle_id)
+    {
+        $vehicle = Vehicle::where('vehicle_id', '=', $vehicle_id)->first();
+        if (!$vehicle) {
+            return response(['error' => 'Not found'], 404);
+        }
+        
+        $vehicle->delete();
+        return response(
+            [
+                'message' => "Vehicle deleted"
+            ],
+            200
+        );
     }
 }
