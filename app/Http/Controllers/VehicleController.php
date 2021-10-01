@@ -23,14 +23,14 @@ class VehicleController extends Controller
     public function createVehicle(Request $request)
     {
         $this->validateRequest($request);
-        $Vehicle_id = utf8_encode(Uuid::generate());
-        $Vehicle = new Vehicle;
-        $Vehicle->Vehicle_id = $Vehicle_id;
-        $Vehicle->maker = $request->maker;
-        $Vehicle->model = $request->model;
-        $Vehicle->year = $request->year;
-        $Vehicle->license_plate = $request->license_plate;
-        $Vehicle->save();
+        $vehicle_id = utf8_encode(Uuid::generate());
+        $vehicle = new Vehicle;
+        $vehicle->vehicle_id = $vehicle_id;
+        $vehicle->maker = $request->maker;
+        $vehicle->model = $request->model;
+        $vehicle->year = $request->year;
+        $vehicle->license_plate = $request->license_plate;
+        $vehicle->save();
         return response(
             [
                 'message' => "Vehicle created",
@@ -54,7 +54,7 @@ class VehicleController extends Controller
         } else {
             $vehicles = Vehicle::get();
             return response(
-                [ 'Vehicles' => $Vehicles ],
+                [ 'vehicles' => $vehicles ],
                 200
             );
         }
