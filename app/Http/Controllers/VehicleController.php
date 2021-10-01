@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Webpatser\Uuid\Uuid;
+use App\Models\Vehicle;
 
 class VehicleController extends Controller
 {
