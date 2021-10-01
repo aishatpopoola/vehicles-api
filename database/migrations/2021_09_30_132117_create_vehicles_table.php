@@ -18,7 +18,7 @@ class CreateVehiclesTable extends Migration
             $table->char('vehicle_id')->unique();
             $table->string('maker');
             $table->string('model');
-            $table->string('year');
+            $table->integer('year');
             $table->string('license_plate')->unique();
             $table->timestamps();
         });

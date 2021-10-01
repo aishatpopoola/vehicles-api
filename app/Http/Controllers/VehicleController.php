@@ -13,8 +13,8 @@ class VehicleController extends Controller
             [
                 'maker' => ['required', 'string', 'max:255'],
                 'model' => ['required', 'string', 'max:255'],
-                'year' => ['nullable', 'integer', 'between:1,1000'],
-                'license_plate' => ['nullable', 'string', 'max:255'],
+                'license_plate' => ['required', 'string', 'max:255'],
+                'year' => ['required', 'digits_between:1, 2021'],
             ]
         );
     }
