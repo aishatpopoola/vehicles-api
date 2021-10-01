@@ -15,7 +15,13 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*',
+        'sanctum/csrf-cookie',
+        'get-vehicles',
+        'update-vehicle',
+        'create-vehicle',
+        'delete-vehicle',
+    ],
 
     'allowed_methods' => ['*'],
 
@@ -29,6 +35,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];

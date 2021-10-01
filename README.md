@@ -25,7 +25,7 @@ This project is meant to serve as the backend for a frontend Books vehicles app.
 - Clone the project
 
 ```bash
-git clone https://github.com/aishatpopoola/library-api.git
+git clone https://github.com/aishatpopoola/vehicles-api.git
 ```
 
 - Install Dependencies
