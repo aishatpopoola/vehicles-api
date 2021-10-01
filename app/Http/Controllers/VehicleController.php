@@ -80,7 +80,7 @@ class VehicleController extends Controller
         );
     }
 
-    public function deleteBook($vehicle_id)
+    public function deleteVehicle($vehicle_id)
     {
         $vehicle = Vehicle::where('vehicle_id', '=', $vehicle_id)->first();
         if (!$vehicle) {
